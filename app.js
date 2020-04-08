@@ -52,8 +52,6 @@ class Start {
             .then(data => {
                 const manager = new Manager(data.managerName, data.managerID, data.managerEmail, data.managerOfficeNumber);
                 team.push(manager);
-                console.log(team);
-                console.log(data.specificRoles);
                 if (data.specificRoles === "Intern") {
                     this.promptIntern();
                 } else if (data.specificRoles === "Engineer") {
@@ -99,10 +97,7 @@ class Start {
             ])
             .then(data => {
                 const intern = new Intern(data.internName, data.internID, data.internEmail, data.internSchool);
-                console.log(intern);
                 team.push(intern);
-                console.log(team);
-                console.log(data.specificRoles);
                 if (data.specificRoles === "Intern") {
                     this.promptIntern();
                 } else if (data.specificRoles === "Engineer") {
@@ -148,47 +143,26 @@ class Start {
             ])
             .then(data => {
                 const engineer = new Engineer(data.engineerName, data.engineerID, data.engineerEmail, data.engineerGithub);
-                console.log(engineer);
                 team.push(engineer);
-                console.log(team);
-                console.log(data.specificRoles);
+
                 if (data.specificRoles === "Intern") {
                     this.promptIntern();
                 } else if (data.specificRoles === "Engineer") {
                     this.promptEngineer();
                 } else {
-                    this.finsih();
+                    this.finish();
                 }
             });
     }
     finish() {
-        // pass the the teams array to htmlrender 
-        //html render passes to output folder 
-        
+        console.log("Processing");
+        // console.log(team);
+        // fs write file to team.html
+        // pass the the team array to render
+        fs.writeFileSync(outputPath, render(team), "utf-8");
     }
-
 }
 
-const test = new Start;
-test.initialPrompt();
-console.log(team);
-// After the user has input all employees desired, call the `render` function (required
-// above) and pass in an array containing all employee objects; the `render` function will
-// generate and return a block of HTML including templated divs for each employee!
-
-// After you have your html, you're now ready to create an HTML file using the HTML
-// returned from the `render` function. Now write it to a file named `team.html` in the
-// `output` folder. You can use the variable `outputPath` above target this location.
-// Hint: you may need to check if the `output` folder exists and create it if it
-// does not.
-
-// HINT: each employee type (manager, engineer, or intern) has slightly different
-// information; write your code to ask different questions via inquirer depending on
-// employee type.
-
-// HINT: make sure to build out your classes first! Remember that your Manager, Engineer,
-// and Intern classes should all extend from a class named Employee; see the directions
-// for further information. Be sure to test out each class and verify it generates an
-// object with the correct structure and methods. This structure will be crucial in order
-// for the provided `render` function to work! ```
+const begin = new Start;
+begin.initialPrompt();
 
