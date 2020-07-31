@@ -1,41 +1,36 @@
-# template-engine
+# Employee Manager CLI App
 
-Node CLI that takes in information about employees and generates an HTML webpage that displays summaries for each person.
+## Description
 
-## start:
+A CLI application used to manage company employees. The user can assign new employees to departments, create new departments, and create new roles in the company.
 
-add_manager
+## Table of Contents
 
-## new_team_member: ask user for next teammate
+- [Installation](#installation)
+- [Usage](#usage)
+- [Screen Shots](#screen-shots)
+- [License](#license)
+- [Contributing](#contributing)
+- [Questions](#questions)
 
-possible responses include: - engineer - intern - no more
-if engineer
-call add_engineer
-else if intern
-call add_intern
-else if none
-call render html with employees array
+## Installation
 
-## add_manager: prompt for manager details
+Install Dependencies
 
-- name
-- id
-- office number
-- this function will prompt user for manager info
-- creates new manager object
-- pushes to employees
-- call new_team_member
+`npm install`
 
-## add_engineer: prompt for engineer details
+## Usage
 
-- this function will prompt user for engineer info
-- creates new engineer object
-- pushes to employees
-- call new_team_member
+To start the application, run `npm start`
 
-## add_intern: prompt for engineer details
+## License
 
-- this function will prompt user for intern info
-- creates new intern object
-- pushes to employees
-- call new_team_member
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Contributing
+
+If you want to contribute, open a Pull Request and include a detailed description and screenshots of the changes.
+
+## Questions
+
+If you have any questions about the repo, open an issue [davidnaimi](https://github.com/d88naimi).
